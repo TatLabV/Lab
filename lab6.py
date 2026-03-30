@@ -5,10 +5,9 @@ import sqlite3
 DB_PATH = "university.db"
 
 
-# -------------------------
-# ЗАДАНИЕ 1
-# Создание базы данных
-# -------------------------
+
+#1. Создание базы данных
+
 
 def create_database():
     try:
@@ -59,10 +58,9 @@ def get_connection():
     return conn
 
 
-# -------------------------
-# ЗАДАНИЕ 2
-# CRUD для студентов
-# -------------------------
+
+#2. CRUD для студентов
+
 
 def add_student(first_name, last_name, group_name, admission_year, average_grade=None):
     try:
@@ -122,10 +120,9 @@ def delete_student(student_id):
         return False
 
 
-# -------------------------
-# ЗАДАНИЕ 3
-# Курсы и транзакции
-# -------------------------
+
+#3. Курсы и транзакции
+
 
 def add_course(course_name, instructor, credits):
     try:
@@ -223,10 +220,9 @@ def transfer_student(student_id, new_group):
         return False
 
 
-# -------------------------
-# ЗАДАНИЕ 4
-# Класс-обертка
-# -------------------------
+
+#4. Класс-обертка
+
 
 class UniversityDB:
     def __init__(self, db_path):
@@ -343,10 +339,9 @@ class UniversityDB:
         )
 
 
-# -------------------------
-# ЗАДАНИЕ 5
-# Консольное приложение
-# -------------------------
+
+#5. Консольное приложение
+
 
 def print_students_table(students):
     if not students:
