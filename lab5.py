@@ -1,7 +1,6 @@
 
-# =========================
 # Lab 5: Управление потоками в Python
-# =========================
+
 
 import time
 import threading
@@ -13,9 +12,9 @@ import random
 from datetime import datetime
 import concurrent.futures
 
-# -------------------------
-# ЗАДАЧА 1: Синхронный калькулятор
-# -------------------------
+
+#1. Синхронный калькулятор
+
 
 def sync_calculate(operation, a, b, delay):
     print(f"Начало операции {a} {operation} {b}")
@@ -51,9 +50,9 @@ def task1():
     print("Время:", round(end - start, 2), "сек\n")
 
 
-# -------------------------
-# ЗАДАЧА 2: Потоки
-# -------------------------
+
+#2. Потоки
+
 
 def download_file(name, size):
     print(f"Начало загрузки {name}")
@@ -87,9 +86,9 @@ def task2():
     print("Время:", round(end - start, 2), "сек\n")
 
 
-# -------------------------
-# ЗАДАЧА 3: Процессы
-# -------------------------
+
+#3. Процессы
+
 
 def calc_factorial(n):
     return math.factorial(n)
@@ -120,9 +119,9 @@ def task3():
     print("Время:", round(end - start, 2), "сек\n")
 
 
-# -------------------------
-# ЗАДАЧА 4: Async
-# -------------------------
+
+#4. Async
+
 
 async def fetch(session, url, name):
     try:
@@ -155,9 +154,9 @@ async def task4():
     print("Время:", round(end - start, 2), "сек\n")
 
 
-# -------------------------
-# ЗАДАЧА 5: Сравнение
-# -------------------------
+
+#5. Сравнение
+
 
 def io_task(name, t):
     time.sleep(t)
@@ -210,9 +209,8 @@ def task5():
     print("async:", round(async_time,2))
 
 
-# -------------------------
 # ЗАПУСК
-# -------------------------
+
 
 if __name__ == "__main__":
     task1()
