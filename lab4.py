@@ -26,9 +26,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-# -------------------------
 # работа с базой данных
-# -------------------------
+
 def init_db():
     conn = sqlite3.connect("bot.db")
     cursor = conn.cursor()
@@ -112,9 +111,8 @@ def get_user_stats(user_id):
     return count
 
 
-# -------------------------
 # обработчики команд
-# -------------------------
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     save_user_basic(user)
@@ -149,9 +147,8 @@ async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(f"Вы отправили сообщений: {count}")
 
 
-# -------------------------
 # inline кнопки
-# -------------------------
+
 async def options(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         [InlineKeyboardButton("Опция 1", callback_data="opt1")],
@@ -171,9 +168,9 @@ async def button_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_text("Вы выбрали опцию 2")
 
 
-# -------------------------
+
 # регистрация через состояния
-# -------------------------
+
 async def register_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Введите ваше имя:")
     return NAME
@@ -221,9 +218,8 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return ConversationHandler.END
 
 
-# -------------------------
 # обработка обычных сообщений
-# -------------------------
+
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     text = update.message.text
@@ -234,16 +230,16 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(f"Вы написали: {text}")
 
 
-# -------------------------
+
 # обработка ошибок
-# -------------------------
+
 async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE):
     logger.error(f"Ошибка: {context.error}")
 
 
-# -------------------------
+
 # запуск приложения
-# -------------------------
+
 def main():
     init_db()
 
